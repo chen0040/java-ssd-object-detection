@@ -1,17 +1,5 @@
-# java-ssd-object-detection
+package com.github.chen0040.objdetect;
 
-Image SSD object detection in Java using Tensorrflow
-
-This project is a derivation from the tensorflow [object detection](https://github.com/tensorflow/models/tree/master/samples/languages/java/object_detection)
-codes but makes it easy to integrate with other java application
-
-# Usage
-
-The [sample codes](src/main/java/com/github/chen0040/objdetect/ObjectDetectorDemo.java) below shows how to detect 
-objects in an image using the [ObjectDetector](src/main/java/com/github/chen0040/objdetect/ObjectDetector.java) 
-class:
-
-```java
 import com.github.chen0040.objdetect.models.DetectedObj;
 
 import javax.imageio.ImageIO;
@@ -35,4 +23,3 @@ public class ObjectDetectorDemo {
         }
     }
 }
-``` 
