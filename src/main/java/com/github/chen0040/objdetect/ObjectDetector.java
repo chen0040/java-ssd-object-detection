@@ -1,30 +1,26 @@
 package com.github.chen0040.objdetect;
 
+import com.github.chen0040.objdetect.models.Box;
 import com.github.chen0040.objdetect.models.DetectedObj;
 import com.github.chen0040.objdetect.utils.FileUtils;
 import com.github.chen0040.objdetect.utils.LabelUtils;
 import com.github.chen0040.objdetect.utils.TensorUtils;
-import com.google.protobuf.TextFormat;
 import lombok.Getter;
 import lombok.Setter;
 import net.lingala.zip4j.core.ZipFile;
 import net.lingala.zip4j.exception.ZipException;
-import object_detection.protos.StringIntLabelMapOuterClass;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.tensorflow.SavedModelBundle;
 import org.tensorflow.Tensor;
 import org.tensorflow.types.UInt8;
 
-import javax.imageio.ImageIO;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -165,5 +161,33 @@ public class ObjectDetector implements AutoCloseable {
             model.close();
             model = null;
         }
+    }
+
+    public BufferedImage drawDetectedObjects(BufferedImage img) {
+        List<DetectedObj> objList;
+        try {
+            objList = detectObjects(img);
+        } catch (IOException e) {
+            logger.error("Failed to detect objects in image", e);
+            objList = new ArrayList<>();
+        }
+
+        BufferedImage result = new BufferedImage(img.getWidth(), img.getHeight(), img.getType());
+        Graphics g = result.getGraphics();
+        g.drawImage(img, 0, 0, null);
+
+        g.setColor(Color.red);
+
+        for(DetectedObj obj : objList){
+            Box box = obj.getBox();
+            int x = (int)(box.getLeft() * img.getWidth());
+            int y = (int)(box.getTop() * img.getHeight());
+            g.drawString(obj.getLabel(), x, y);
+            int width = (int)(box.getWidth() * img.getWidth());
+            int height = (int)(box.getHeight() * img.getHeight());
+            g.drawRect(x, y, width, height);
+        }
+
+        return result;
     }
 }

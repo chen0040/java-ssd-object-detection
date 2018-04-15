@@ -33,6 +33,13 @@ public class ObjectDetectorDemo {
         for(int i=0; i < result.size(); ++i){
             System.out.println("# " + (i + 1) + ": " + result.get(i));
         }
+        
+        BufferedImage img2 = detector.drawDetectedObjects(img);
+        ImageIO.write(img2, "PNG", new File("images/test_output.png"));
     }
 }
 ``` 
+
+Below shows the result of the test_output.png generated:
+
+![test_output.png](images/test_output.png)
