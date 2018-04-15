@@ -13,7 +13,7 @@
     <licenses>
         <license>
             <name>MIT</name>
-            <url>https://github.com/chen0040/java-ssd-object-detector/blob/master/LICENSE</url>
+            <url>https://github.com/chen0040/java-ssd-object-detection/blob/master/LICENSE</url>
             <comments>MIT License</comments>
         </license>
     </licenses>
@@ -28,20 +28,20 @@
     </developers>
 
     <scm>
-        <url>https://github.com/chen0040/java-ssd-object-detector</url>
-        <connection>scm:git:git://github.com/chen0040/java-ssd-object-detector.git</connection>
-        <developerConnection>scm:git:git@github.com:chen0040/java-ssd-object-detector.git</developerConnection>
+        <url>https://github.com/chen0040/java-ssd-object-detection</url>
+        <connection>scm:git:git://github.com/chen0040/java-ssd-object-detection.git</connection>
+        <developerConnection>scm:git:git@github.com:chen0040/java-ssd-object-detection.git</developerConnection>
     </scm>
 
     <issueManagement>
-        <url>https://github.com/chen0040/java-ssd-object-detector/issues</url>
+        <url>https://github.com/chen0040/java-ssd-object-detection/issues</url>
         <system>GitHub Issues</system>
     </issueManagement>
 
 
-    <name>java-ssd-object-detector</name>
+    <name>SSD MultiBox Object Detector in Java</name>
     <description>Java implementation of SSD MultiBox Object Detector</description>
-    <url>https://github.com/chen0040/java-ssd-object-detector</url>
+    <url>https://github.com/chen0040/java-ssd-object-detection</url>
 
     <distributionManagement>
         <snapshotRepository>
